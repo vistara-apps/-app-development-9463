@@ -4,10 +4,12 @@ import { Card } from './components/Card';
 import { Button } from './components/Button';
 import { BioGenerator } from './components/BioGenerator';
 import { DateIdeaGenerator } from './components/DateIdeaGenerator';
+import { ToastContainer, useToast } from './components/Toast';
 import { Users, Coffee, Star, Zap } from 'lucide-react';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
+  const toast = useToast();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -146,6 +148,9 @@ function App() {
 
       {/* Content */}
       {renderContent()}
+      
+      {/* Toast Notifications */}
+      <ToastContainer toasts={toast.toasts} />
     </AppShell>
   );
 }
